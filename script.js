@@ -20,18 +20,23 @@ function startTimer() {
 }
 
 function submitExam() {
-    let score = 0;
-    const q1 = document.querySelector('input[name="q1"]:checked');
-    
-    // If answer is right, score is 1. If wrong or empty, score is 0.
-    if (q1 && q1.value === "correct") {
+    let score = 0; // Start score at 0
+    const q1 = document.querySelector('input[name="q1"]:checked'); // Find selected answer
+
+    if (!q1) {
+        alert("Please select an answer before submitting!"); // Validation check
+        return;
+    }
+
+    // Logic: If user picks the radio button with value="correct", score becomes 1
+    if (q1.value === "correct") {
         score = 1;
     }
-    
-    // Send the score to the result page
+
+    // This sends the score to your result.html page
     window.location.href = "result.html?score=" + score;
 }
-
+    
 // Start timer only when on the exam page
 if (window.location.pathname.includes('exam.html')) {
     window.onload = startTimer;
