@@ -6,8 +6,6 @@ Technologies:
 HTML
 CSS
 JavaScript
-PHP
-MySQL
 
 Features:
 Admin management
